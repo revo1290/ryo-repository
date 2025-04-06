@@ -101,6 +101,23 @@ export default async function DictionaryDetail({ params }: { params: { id: strin
                   </ol>
                 </div>
 
+                {job.affiliateLink && (
+                  <div className="mt-4">
+                    <h3 className="text-lg font-semibold flex items-center mb-2">
+                      <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
+                      始めるのにおすすめのサービス
+                    </h3>
+                    <Link
+                      href={job.affiliateLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      こちらから始める
+                    </Link>
+                  </div>
+                )}
+
                 <div>
                   <h3 className="text-lg font-semibold flex items-center mb-3">
                     <Wrench className="h-5 w-5 mr-2 text-amber-500" />
