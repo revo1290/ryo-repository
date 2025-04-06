@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sidejob-diagnosis.vercel.app
+
+# Sitemaps
+Sitemap: https://sidejob-diagnosis.vercel.app/sitemap.xml
