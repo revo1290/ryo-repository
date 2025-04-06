@@ -226,6 +226,23 @@ export default function DiagnosisResults() {
                           ))}
                         </ul>
                       </div>
+
+                      {job.affiliateLink && (
+                        <div className="mt-4">
+                          <h3 className="text-lg font-semibold flex items-center mb-2">
+                            <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
+                            さらに詳しく
+                          </h3>
+                          <Link
+                            href={job.affiliateLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:underline"
+                          >
+                            こちらから始める
+                          </Link>
+                        </div>
+                      )}
                     </CardContent>
                     <CardFooter>
                       <Link href={`/dictionary/${job.id}`} className="w-full">

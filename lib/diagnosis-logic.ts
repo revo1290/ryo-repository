@@ -16,6 +16,7 @@ export const sideJobs = [
     ],
     tools: ["Word", "Google Docs", "Grammarly（文章チェックツール）"],
     suitableFor: ["文章を書くのが好きな人", "コツコツ作業が得意な人", "在宅で働きたい人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "programming",
@@ -31,8 +32,9 @@ export const sideJobs = [
       "GitHubでコードを公開して実績作り",
       "クラウドソーシングサイトやフリーランスエージェントに登録",
     ],
-    tools: ["Visual Studio Code", "GitHub", "Stack Overflow"],
+    tools: ["Visual Studio Code", "GitHub", "各種プログラミング言語"],
     suitableFor: ["IT・技術が好きな人", "論理的思考が得意な人", "新しい技術を学ぶのが好きな人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "youtuber",
@@ -58,6 +60,7 @@ export const sideJobs = [
       "動画編集ソフト（Adobe Premiere Pro、Final Cut Pro、無料ならDaVinci Resolve）",
     ],
     suitableFor: ["人前に出るのが好きな人", "特定の分野に詳しい人", "クリエイティブな活動が好きな人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "illustrator",
@@ -84,6 +87,7 @@ export const sideJobs = [
       "イラスト制作ソフト（CLIP STUDIO PAINT, Adobe Illustrator）",
     ],
     suitableFor: ["絵を描くのが好きな人", "デザインセンスがある人", "創作活動が好きな人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "online-teacher",
@@ -106,6 +110,7 @@ export const sideJobs = [
     ],
     tools: ["Zoom", "Skype", "Google Meet", "教材作成ツール（Canva, PowerPointなど）"],
     suitableFor: ["教えるのが好きな人", "コミュニケーション能力が高い人", "特定の分野に詳しい人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "data-entry",
@@ -123,6 +128,7 @@ export const sideJobs = [
     ],
     tools: ["Excel", "Google スプレッドシート", "タイピング練習ソフト"],
     suitableFor: ["コツコツ作業が得意な人", "正確性が高い人", "短時間でも効率よく働きたい人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "social-media-manager",
@@ -145,6 +151,7 @@ export const sideJobs = [
     ],
     tools: ["Buffer", "Hootsuite", "Canva", "各種SNSアプリ"],
     suitableFor: ["SNSが好きな人", "トレンドに敏感な人", "コミュニケーション能力が高い人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "translation",
@@ -167,6 +174,7 @@ export const sideJobs = [
     ],
     tools: ["翻訳支援ツール（SDL Trados, MemoQ）", "辞書ツール", "Google翻訳（参考用）"],
     suitableFor: ["語学力がある人", "正確な文章を書ける人", "異文化に興味がある人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "web-design",
@@ -189,6 +197,7 @@ export const sideJobs = [
     ],
     tools: ["Adobe XD", "Figma", "Photoshop", "Illustrator", "WordPress"],
     suitableFor: ["デザインが好きな人", "ビジュアルセンスがある人", "新しい技術を学ぶのが好きな人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
   {
     id: "affiliate-marketing",
@@ -211,6 +220,7 @@ export const sideJobs = [
     ],
     tools: ["WordPress", "Google Analytics", "SEO分析ツール（Ubersuggest, Ahrefs）"],
     suitableFor: ["文章を書くのが好きな人", "特定の分野に詳しい人", "マーケティングに興味がある人"],
+    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
   },
 ]
 
