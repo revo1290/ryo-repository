@@ -113,7 +113,7 @@ export default async function DictionaryDetail({ params }: { params: { id: strin
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:underline"
                     >
-                      こちらから始める
+                      クラウドワークス
                     </Link>
                   </div>
                 )}

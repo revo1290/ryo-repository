@@ -7,14 +7,14 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "副業診断アプリ | あなたにぴったりの副業を見つけよう",
+  title: "副業診断アプリ | 副業診断 | あなたにぴったりの副業を見つけよう",
   description: "簡単な質問に答えるだけで、あなたに最適な副業を診断します。単価相場や始め方もわかります。",
   verification: {
     google: 'nYV77zDLt9Puee92fKs-xOjU7tkLPhyJ4Cpz6oy84RY',
   },
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
-    title: "副業診断アプリ | あなたにぴったりの副業を見つけよう",
+    title: "副業診断アプリ | 副業診断 | あなたにぴったりの副業を見つけよう",
     description: "簡単な質問に答えるだけで、あなたに最適な副業を診断します。単価相場や始め方もわかります。",
     images: [
       {
