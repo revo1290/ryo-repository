@@ -134,14 +134,6 @@ export default function DiagnosisResults() {
                   <Award className="h-4 w-4 mr-2 hidden sm:inline-block" />
                   1位: {results[0]?.title}
                 </TabsTrigger>
-                <TabsTrigger value="job2" className="text-sm sm:text-base">
-                  <Award className="h-4 w-4 mr-2 hidden sm:inline-block" />
-                  2位: {results[1]?.title}
-                </TabsTrigger>
-                <TabsTrigger value="job3" className="text-sm sm:text-base">
-                  <Award className="h-4 w-4 mr-2 hidden sm:inline-block" />
-                  3位: {results[2]?.title}
-                </TabsTrigger>
               </TabsList>
 
               {results.map((job, index) => (
@@ -210,7 +202,7 @@ export default function DiagnosisResults() {
                             rel="noopener noreferrer"
                             className="text-blue-500 hover:underline"
                           >
-                            こちらから始める
+                            クラウドワークス
                           </Link>
                         </div>
                       )}
