@@ -131,7 +131,7 @@ export default function DiagnosisResults() {
             <Tabs defaultValue="job1" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="job1" className="text-sm sm:text-base">
-                  <Award className="mr-2 h-4 w-4" />
+                  <Award className="mr-2 h-4 w-full" />
                   <div className="w-full text-center">
                       1位: {results[0]?.title}
                   </div>
