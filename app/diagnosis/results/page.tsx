@@ -198,17 +198,21 @@ export default function DiagnosisResults() {
                             <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
                             始めるのにおすすめのサービス
                           </h3>
-                          {job.affiliateLink.map((url: string, i: number) => (
-                            <Link
-                              href={url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-500 hover:underline"
-                              key={i}
-                            >
-                              {job.affiliateName[i]}
-                            </Link>
-                          ))}
+                          <ol className="space-y-2 list-decimal list-inside">
+                            {job.affiliateLink.map((url: string, i: number) => (
+                              <li key={i} className="pl-2">
+                                <Link
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-500 hover:underline"
+                                  key={i}
+                                >
+                                {job.affiliateName[i]}
+                                </Link>
+                              </li>
+                            ))}
+                          </ol>
                         </div>
                       )}
 
