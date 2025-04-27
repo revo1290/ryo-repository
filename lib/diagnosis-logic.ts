@@ -7,7 +7,12 @@ export const sideJobs = [
       "ブログ記事やWebサイトのコンテンツを作成する仕事です。特定のテーマについて調査し、読みやすく魅力的な文章を書きます。",
     price: "1文字0.5円〜3円",
     difficulty: "初心者向け",
-    features: ["在宅で働ける", "時間や場所を選ばない", "特別な資格は不要", "文章力が身につく"],
+    features: [
+      "在宅で働ける",
+      "時間や場所を選ばない",
+      "特別な資格は不要",
+      "文章力が身につく",
+    ],
     howToStart: [
       "クラウドソーシングサイト（ランサーズ、クラウドワークスなど）に登録",
       "プロフィールを充実させ、ポートフォリオを作成",
@@ -15,8 +20,16 @@ export const sideJobs = [
       "専門分野を決めて特化すると単価アップが狙える",
     ],
     tools: ["Word", "Google Docs", "Grammarly（文章チェックツール）"],
-    suitableFor: ["文章を書くのが好きな人", "コツコツ作業が得意な人", "在宅で働きたい人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    suitableFor: [
+      "文章を書くのが好きな人",
+      "コツコツ作業が得意な人",
+      "在宅で働きたい人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "programming",
@@ -25,7 +38,12 @@ export const sideJobs = [
       "Webサイト制作、アプリ開発、システム構築などのプログラミング業務を請け負います。技術力を活かして高単価案件を獲得できます。",
     price: "時給3,000円〜10,000円",
     difficulty: "中級者〜上級者向け",
-    features: ["高単価が期待できる", "リモートワークが一般的", "技術力が身につく", "将来独立の足がかりになる"],
+    features: [
+      "高単価が期待できる",
+      "リモートワークが一般的",
+      "技術力が身につく",
+      "将来独立の足がかりになる",
+    ],
     howToStart: [
       "プログラミング言語（JavaScript、Python、PHPなど）を学ぶ",
       "ポートフォリオサイトを作成",
@@ -33,8 +51,17 @@ export const sideJobs = [
       "クラウドソーシングサイトやフリーランスエージェントに登録",
     ],
     tools: ["Visual Studio Code", "GitHub", "各種プログラミング言語"],
-    suitableFor: ["IT・技術が好きな人", "論理的思考が得意な人", "新しい技術を学ぶのが好きな人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    suitableFor: [
+      "IT・技術が好きな人",
+      "論理的思考が得意な人",
+      "新しい技術を学ぶのが好きな人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DKT3DM+3UES+5YZ77",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ", "ポテパンフリーランス"],
   },
   {
     id: "youtuber",
@@ -59,8 +86,16 @@ export const sideJobs = [
       "スマートフォンまたはカメラ",
       "動画編集ソフト（Adobe Premiere Pro、Final Cut Pro、無料ならDaVinci Resolve）",
     ],
-    suitableFor: ["人前に出るのが好きな人", "特定の分野に詳しい人", "クリエイティブな活動が好きな人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    suitableFor: [
+      "人前に出るのが好きな人",
+      "特定の分野に詳しい人",
+      "クリエイティブな活動が好きな人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "illustrator",
@@ -86,8 +121,16 @@ export const sideJobs = [
       "液タブ（Wacom, XP-Pen）",
       "イラスト制作ソフト（CLIP STUDIO PAINT, Adobe Illustrator）",
     ],
-    suitableFor: ["絵を描くのが好きな人", "デザインセンスがある人", "創作活動が好きな人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    suitableFor: [
+      "絵を描くのが好きな人",
+      "デザインセンスがある人",
+      "創作活動が好きな人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "online-teacher",
@@ -108,9 +151,22 @@ export const sideJobs = [
       "レッスン内容と料金を設定",
       "SNSやブログでも情報発信して集客",
     ],
-    tools: ["Zoom", "Skype", "Google Meet", "教材作成ツール（Canva, PowerPointなど）"],
-    suitableFor: ["教えるのが好きな人", "コミュニケーション能力が高い人", "特定の分野に詳しい人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    tools: [
+      "Zoom",
+      "Skype",
+      "Google Meet",
+      "教材作成ツール（Canva, PowerPointなど）",
+    ],
+    suitableFor: [
+      "教えるのが好きな人",
+      "コミュニケーション能力が高い人",
+      "特定の分野に詳しい人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "data-entry",
@@ -119,7 +175,12 @@ export const sideJobs = [
       "企業から依頼されたデータをExcelなどに入力する単純作業です。特別なスキルがなくても始められる副業として人気があります。",
     price: "時給1,000円〜2,000円",
     difficulty: "初心者向け",
-    features: ["特別なスキルが不要", "在宅で働ける", "短時間から始められる", "コツコツ作業が得意な人に向いている"],
+    features: [
+      "特別なスキルが不要",
+      "在宅で働ける",
+      "短時間から始められる",
+      "コツコツ作業が得意な人に向いている",
+    ],
     howToStart: [
       "クラウドソーシングサイト（ランサーズ、クラウドワークスなど）に登録",
       "タイピングスキルを磨く",
@@ -127,8 +188,16 @@ export const sideJobs = [
       "評価を上げて単価の高い案件を目指す",
     ],
     tools: ["Excel", "Google スプレッドシート", "タイピング練習ソフト"],
-    suitableFor: ["コツコツ作業が得意な人", "正確性が高い人", "短時間でも効率よく働きたい人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    suitableFor: [
+      "コツコツ作業が得意な人",
+      "正確性が高い人",
+      "短時間でも効率よく働きたい人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "social-media-manager",
@@ -150,8 +219,16 @@ export const sideJobs = [
       "クラウドソーシングやココナラで小さな案件から始める",
     ],
     tools: ["Buffer", "Hootsuite", "Canva", "各種SNSアプリ"],
-    suitableFor: ["SNSが好きな人", "トレンドに敏感な人", "コミュニケーション能力が高い人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    suitableFor: [
+      "SNSが好きな人",
+      "トレンドに敏感な人",
+      "コミュニケーション能力が高い人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "translation",
@@ -172,9 +249,21 @@ export const sideJobs = [
       "クラウドソーシングサイトで小さな案件から始める",
       "特定の分野（IT, 医療, 法律など）に特化すると有利",
     ],
-    tools: ["翻訳支援ツール（SDL Trados, MemoQ）", "辞書ツール", "Google翻訳（参考用）"],
-    suitableFor: ["語学力がある人", "正確な文章を書ける人", "異文化に興味がある人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    tools: [
+      "翻訳支援ツール（SDL Trados, MemoQ）",
+      "辞書ツール",
+      "Google翻訳（参考用）",
+    ],
+    suitableFor: [
+      "語学力がある人",
+      "正確な文章を書ける人",
+      "異文化に興味がある人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "web-design",
@@ -196,8 +285,16 @@ export const sideJobs = [
       "クラウドソーシングサイトで小さな案件から始める",
     ],
     tools: ["Adobe XD", "Figma", "Photoshop", "Illustrator", "WordPress"],
-    suitableFor: ["デザインが好きな人", "ビジュアルセンスがある人", "新しい技術を学ぶのが好きな人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    suitableFor: [
+      "デザインが好きな人",
+      "ビジュアルセンスがある人",
+      "新しい技術を学ぶのが好きな人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "affiliate-marketing",
@@ -218,11 +315,22 @@ export const sideJobs = [
       "ASP（A8.net, もしもアフィリエイトなど）に登録",
       "SEO対策を学び、検索流入を増やす",
     ],
-    tools: ["WordPress", "Google Analytics", "SEO分析ツール（Ubersuggest, Ahrefs）"],
-    suitableFor: ["文章を書くのが好きな人", "特定の分野に詳しい人", "マーケティングに興味がある人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+    tools: [
+      "WordPress",
+      "Google Analytics",
+      "SEO分析ツール（Ubersuggest, Ahrefs）",
+    ],
+    suitableFor: [
+      "文章を書くのが好きな人",
+      "特定の分野に詳しい人",
+      "マーケティングに興味がある人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
-  // --- 追加した副業 ---
   {
     id: "online-secretary",
     title: "オンライン秘書・事務代行",
@@ -243,8 +351,17 @@ export const sideJobs = [
       "小さな案件から始めて実績を積む",
     ],
     tools: ["Word", "Excel", "PowerPoint", "Google Workspace", "Slack", "Zoom"],
-    suitableFor: ["コツコツ作業が得意な人", "サポートするのが好きな人", "PC作業に抵抗がない人", "コミュニケーションを丁寧にできる人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29", // 例：関連性の高いアフィリエイトがあれば変更
+    suitableFor: [
+      "コツコツ作業が得意な人",
+      "サポートするのが好きな人",
+      "PC作業に抵抗がない人",
+      "コミュニケーションを丁寧にできる人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "stock-photo",
@@ -265,9 +382,22 @@ export const sideJobs = [
       "需要のあるテーマやキーワードを研究",
       "規約に沿って写真をアップロード・申請",
     ],
-    tools: ["カメラ（一眼レフ、ミラーレス、高性能スマホ）", "写真編集ソフト（Adobe Lightroom, Photoshop）", "ストックフォトサイトのアプリ/ウェブサイト"],
-    suitableFor: ["写真を撮るのが好きな人", "視覚的な表現が得意な人", "コツコツと作品を増やせる人", "長期的な視点で取り組める人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29", // 例：関連性の高いアフィリエイトがあれば変更
+    tools: [
+      "カメラ（一眼レフ、ミラーレス、高性能スマホ）",
+      "写真編集ソフト（Adobe Lightroom, Photoshop）",
+      "ストックフォトサイトのアプリ/ウェブサイト",
+    ],
+    suitableFor: [
+      "写真を撮るのが好きな人",
+      "視覚的な表現が得意な人",
+      "コツコツと作品を増やせる人",
+      "長期的な視点で取り組める人",
+    ],
+    affiliateLink: [
+      "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29",
+      "https://px.a8.net/svt/ejp?a8mat=3H5VRK+FZQDP6+2PEO+OAWWZ",
+    ],
+    affiliateName: ["クラウドワークス", "ココナラ"],
   },
   {
     id: "online-consulting",
@@ -289,9 +419,20 @@ export const sideJobs = [
       "オンラインミーティングツールを使ってセッションを提供",
       "コーチングやコンサルティングの基礎を学ぶ",
     ],
-    tools: ["Zoom", "Google Meet", "オンライン決済ツール（Stripe, PayPal）", "専門知識に関する書籍や情報源"],
-    suitableFor: ["人に教えるのが好きな人", "専門知識・経験が豊富な人", "コミュニケーション能力が高い人", "課題解決に関心がある人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29", // 例：関連性の高いアフィリエイトがあれば変更
+    tools: [
+      "Zoom",
+      "Google Meet",
+      "オンライン決済ツール（Stripe, PayPal）",
+      "専門知識に関する書籍や情報源",
+    ],
+    suitableFor: [
+      "人に教えるのが好きな人",
+      "専門知識・経験が豊富な人",
+      "コミュニケーション能力が高い人",
+      "課題解決に関心がある人",
+    ],
+    affiliateLink: ["https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29"],
+    affiliateName: ["クラウドワークス"],
   },
   {
     id: "e-commerce",
@@ -313,14 +454,29 @@ export const sideJobs = [
       "集客・販売戦略を立てる",
       "在庫管理や発送、顧客対応を行う",
     ],
-    tools: ["ECサイト構築プラットフォーム", "仕入れサイト", "梱包材", "配送サービス", "販売管理ツール"],
-    suitableFor: ["ビジネスやマーケティングに興味がある人", "リサーチが得意な人", "顧客対応を丁寧に行える人", "PDCAを回せる人"],
-    affiliateLink: "https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29", // 例：関連性の高いアフィリエイトがあれば変更
+    tools: [
+      "ECサイト構築プラットフォーム",
+      "仕入れサイト",
+      "梱包材",
+      "配送サービス",
+      "販売管理ツール",
+    ],
+    suitableFor: [
+      "ビジネスやマーケティングに興味がある人",
+      "リサーチが得意な人",
+      "顧客対応を丁寧に行える人",
+      "PDCAを回せる人",
+    ],
+    affiliateLink: ["https://px.a8.net/svt/ejp?a8mat=3H7MD8+DJM862+2OM2+U3W29"],
+    affiliateName: ["クラウドワークス"],
   },
 ];
 
 // 診断ロジック
-export function analyzeDiagnosis(type: string, answers: Record<number, string>) {
+export function analyzeDiagnosis(
+  type: string,
+  answers: Record<number, string>
+) {
   // 各副業の適性スコアを計算
   const scores: Record<string, number> = {};
 

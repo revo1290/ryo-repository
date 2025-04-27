@@ -107,14 +107,17 @@ export default async function DictionaryDetail({ params }: { params: { id: strin
                       <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
                       始めるのにおすすめのサービス
                     </h3>
-                    <Link
-                      href={job.affiliateLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
-                    >
-                      クラウドワークス
-                    </Link>
+                    {job.affiliateLink.map((url: string, i: number) => (
+                      <Link
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:underline"
+                        key={i}
+                      >
+                        {job.affiliateName[i]}
+                      </Link>
+                    ))}
                   </div>
                 )}
 
