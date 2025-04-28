@@ -19,6 +19,7 @@ import {
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 export default function Home() {
   // 特徴データ
@@ -91,6 +92,26 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
+        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        <a href="https://px.a8.net/svt/ejp?a8mat=453G7N+1JYYL6+41RS+5Z6WX" rel="nofollow">
+          <img
+            src="https://www24.a8.net/svt/bgt?aid=250423763094&wid=010&eno=01&mid=s00000018892001004000&mc=1"
+            width={468}
+            height={60}
+            alt="副業案件バナー"
+            style={{ border: 0 }}
+          />
+        </a>
+        {/* トラッキング用の1px画像 */}
+        <img
+          src="https://www17.a8.net/0.gif?a8mat=453G7N+1JYYL6+41RS+5Z6WX"
+          width={1}
+          height={1}
+          alt=""
+          style={{ border: 0 }}
+        />
+      </div>
+        
         {/* ─── ヒーローセクション ───────────────────────────── */}
         <section className="relative w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-amber-100 to-white overflow-hidden">
           {/* 背景装飾 */}
