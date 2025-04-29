@@ -4,6 +4,30 @@ import { BriefcaseBusiness } from "lucide-react"
 export function Footer() {
   return (
     <footer className="w-full border-t bg-white">
+      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        <p style={{ fontSize: '1rem', color: '#444' }}>
+          営業に興味がある方におすすめのサービスをピックアップしてみました。
+        </p>
+        <a
+          href="https://px.a8.net/svt/ejp?a8mat=453G7N+1JYYL6+41RS+5Z6WX"
+          rel="nofollow"
+          target="_blank"
+          style={{ display: 'inline-block', marginTop: '1rem' }}
+        >
+          <img
+            src="https://www24.a8.net/svt/bgt?aid=250423763094&wid=010&eno=01&mid=s00000018892001004000&mc=1"
+            alt="副業支援サービスのバナー"
+            style={{ maxWidth: '100%', height: 'auto', border: 0 }}
+          />
+        </a>
+
+        {/* トラッキング用 */}
+        <img
+          src="https://www17.a8.net/0.gif?a8mat=453G7N+1JYYL6+41RS+5Z6WX"
+          alt=""
+          style={{ display: 'none' }}
+        />
+      </div>
       <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
         <div className="flex items-center gap-2">
           <BriefcaseBusiness className="h-6 w-6 text-amber-500" />

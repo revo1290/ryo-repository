@@ -1,13 +1,20 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useSearchParams, useRouter } from "next/navigation"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
+import { useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import {
   Award,
   BriefcaseBusiness,
@@ -21,63 +28,69 @@ import {
   Share2,
   Twitter,
   Wrench,
-} from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { analyzeDiagnosis } from "@/lib/diagnosis-logic"
+} from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { analyzeDiagnosis } from "@/lib/diagnosis-logic";
 
 export default function DiagnosisResults() {
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const [results, setResults] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [results, setResults] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const type = searchParams.get("type") || "simple"
-  const answersParam = searchParams.get("answers")
+  const type = searchParams.get("type") || "simple";
+  const answersParam = searchParams.get("answers");
 
   useEffect(() => {
     if (!answersParam) {
-      router.push("/")
-      return
+      router.push("/");
+      return;
     }
 
     try {
-      const answers = JSON.parse(decodeURIComponent(answersParam))
-      const diagnosisResults = analyzeDiagnosis(type, answers)
-      setResults(diagnosisResults)
-      setLoading(false)
+      const answers = JSON.parse(decodeURIComponent(answersParam));
+      const diagnosisResults = analyzeDiagnosis(type, answers);
+      setResults(diagnosisResults);
+      setLoading(false);
     } catch (error) {
-      console.error("Error parsing answers:", error)
-      router.push("/")
+      console.error("Error parsing answers:", error);
+      router.push("/");
     }
-  }, [answersParam, router, type])
+  }, [answersParam, router, type]);
 
   const handleRediagnosis = () => {
-    router.push(`/diagnosis/${type}`)
-  }
+    router.push(`/diagnosis/${type}`);
+  };
 
   const handleShare = (platform: string) => {
-    const url = window.location.href
-    const text = `私の副業診断結果: ${results[0]?.title}！あなたも副業診断してみませんか？`
+    const url = window.location.href;
+    const text = `私の副業診断結果: ${results[0]?.title}！あなたも副業診断してみませんか？`;
 
-    let shareUrl = ""
+    let shareUrl = "";
 
     switch (platform) {
       case "twitter":
-        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`
-        break
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          text
+        )}&url=${encodeURIComponent(url)}`;
+        break;
       case "facebook":
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
-        break
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          url
+        )}`;
+        break;
       case "instagram":
         // Instagramは直接シェアできないので、クリップボードにコピー
-        navigator.clipboard.writeText(`${text} ${url}`)
-        alert("テキストをクリップボードにコピーしました。Instagramに貼り付けてください。")
-        return
+        navigator.clipboard.writeText(`${text} ${url}`);
+        alert(
+          "テキストをクリップボードにコピーしました。Instagramに貼り付けてください。"
+        );
+        return;
     }
 
-    window.open(shareUrl, "_blank", "width=600,height=400")
-  }
+    window.open(shareUrl, "_blank", "width=600,height=400");
+  };
 
   if (loading) {
     return (
@@ -93,7 +106,7 @@ export default function DiagnosisResults() {
         </main>
         <Footer />
       </div>
-    )
+    );
   }
 
   return (
@@ -103,26 +116,45 @@ export default function DiagnosisResults() {
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-4xl">
             <div className="mb-8 text-center">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">あなたにぴったりの副業</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                あなたにぴったりの副業
+              </h1>
               <p className="mt-2 text-gray-500">
-                {type === "simple" ? "簡単診断" : "詳細診断"}の結果、あなたに最適な副業を見つけました
+                {type === "simple" ? "簡単診断" : "詳細診断"}
+                の結果、あなたに最適な副業を見つけました
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center mb-8">
-              <Button variant="outline" onClick={handleRediagnosis} className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={handleRediagnosis}
+                className="flex items-center gap-2"
+              >
                 <RefreshCw className="h-4 w-4" />
                 再診断する
               </Button>
-              <Button variant="outline" onClick={() => handleShare("twitter")} className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={() => handleShare("twitter")}
+                className="flex items-center gap-2"
+              >
                 <Twitter className="h-4 w-4" />
                 Twitterでシェア
               </Button>
-              <Button variant="outline" onClick={() => handleShare("facebook")} className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={() => handleShare("facebook")}
+                className="flex items-center gap-2"
+              >
                 <Facebook className="h-4 w-4" />
                 Facebookでシェア
               </Button>
-              <Button variant="outline" onClick={() => handleShare("instagram")} className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                onClick={() => handleShare("instagram")}
+                className="flex items-center gap-2"
+              >
                 <Instagram className="h-4 w-4" />
                 Instagramでシェア
               </Button>
@@ -133,7 +165,7 @@ export default function DiagnosisResults() {
                 <TabsTrigger value="job1" className="text-sm sm:text-base">
                   <Award className="mr-2 h-4 w-full" />
                   <div className="w-full text-center">
-                      1位: {results[0]?.title}
+                    1位: {results[0]?.title}
                   </div>
                 </TabsTrigger>
               </TabsList>
@@ -144,10 +176,17 @@ export default function DiagnosisResults() {
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <div>
-                          <CardTitle className="text-2xl">{job.title}</CardTitle>
-                          <CardDescription className="mt-2">{job.description}</CardDescription>
+                          <CardTitle className="text-2xl">
+                            {job.title}
+                          </CardTitle>
+                          <CardDescription className="mt-2">
+                            {job.description}
+                          </CardDescription>
                         </div>
-                        <Badge variant="outline" className="text-amber-500 border-amber-500">
+                        <Badge
+                          variant="outline"
+                          className="text-amber-500 border-amber-500"
+                        >
                           {job.difficulty}
                         </Badge>
                       </div>
@@ -158,7 +197,9 @@ export default function DiagnosisResults() {
                           <Coins className="h-5 w-5 mr-2 text-amber-500" />
                           単価相場
                         </h3>
-                        <p className="text-xl font-bold text-amber-500">{job.price}</p>
+                        <p className="text-xl font-bold text-amber-500">
+                          {job.price}
+                        </p>
                       </div>
 
                       <div>
@@ -198,21 +239,20 @@ export default function DiagnosisResults() {
                             <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
                             始めるのにおすすめのサービス
                           </h3>
-                          <ol className="space-y-2 list-decimal list-inside">
+                          <ul className="space-y-2">
                             {job.affiliateLink.map((url: string, i: number) => (
-                              <li key={i} className="pl-2">
+                              <li key={i}>
                                 <Link
                                   href={url}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="text-blue-500 hover:underline"
-                                  key={i}
                                 >
-                                {job.affiliateName[i]}
+                                  {job.affiliateName[i]}
                                 </Link>
                               </li>
                             ))}
-                          </ol>
+                          </ul>
                         </div>
                       )}
 
@@ -259,7 +299,9 @@ export default function DiagnosisResults() {
             </Tabs>
 
             <div className="mt-12 bg-amber-50 rounded-lg p-6">
-              <h2 className="text-xl font-bold mb-4">副業を始める前に知っておきたいこと</h2>
+              <h2 className="text-xl font-bold mb-4">
+                副業を始める前に知っておきたいこと
+              </h2>
               <div className="space-y-4">
                 <p>
                   副業を始める際は、本業との兼ね合いや税金の問題など、いくつか注意点があります。
@@ -282,6 +324,5 @@ export default function DiagnosisResults() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
-

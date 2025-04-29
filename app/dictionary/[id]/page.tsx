@@ -1,9 +1,15 @@
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import {
   ArrowLeft,
   BriefcaseBusiness,
@@ -16,62 +22,78 @@ import {
   Share2,
   Twitter,
   Wrench,
-} from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { sideJobs } from "@/lib/diagnosis-logic"
+  ExternalLink,
+} from "lucide-react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { sideJobs } from "@/lib/diagnosis-logic";
 
 export async function generateStaticParams() {
-  return sideJobs.map((job) => ({
-    id: job.id,
-  }))
+  return sideJobs.map((job) => ({ id: job.id }));
 }
 
-export default async function DictionaryDetail({ params }: { params: { id: string } }) {
-  const job = sideJobs.find((job) => job.id === params.id)
+export default async function DictionaryDetail({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const job = sideJobs.find((job) => job.id === params.id);
 
   if (!job) {
-    notFound()
+    notFound();
   }
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 py-12 md:py-24">
+      <main className="flex-1 py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-6">
+          <div className="mx-auto max-w-3xl space-y-8">
+            <div>
               <Link href="/dictionary">
-                <Button variant="ghost" className="pl-0 flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  className="pl-0 flex items-center gap-2 text-muted-foreground hover:text-black"
+                >
                   <ArrowLeft className="h-4 w-4" />
                   副業辞典に戻る
                 </Button>
               </Link>
             </div>
 
-            <Card>
+            <Card className="shadow-md">
               <CardHeader>
-                <div className="flex items-center justify-between">
+                <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle className="text-2xl md:text-3xl">{job.title}</CardTitle>
-                    <CardDescription className="mt-2 text-base">{job.description}</CardDescription>
+                    <CardTitle className="text-3xl font-bold">
+                      {job.title}
+                    </CardTitle>
+                    <CardDescription className="mt-2 text-base leading-relaxed">
+                      {job.description}
+                    </CardDescription>
                   </div>
-                  <Badge variant="outline" className="text-amber-500 border-amber-500">
+                  <Badge
+                    variant="outline"
+                    className="text-amber-500 border-amber-500 text-sm px-3 py-1"
+                  >
                     {job.difficulty}
                   </Badge>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-8">
-                <div>
-                  <h3 className="text-lg font-semibold flex items-center mb-3">
+
+              <CardContent className="space-y-10">
+                <section>
+                  <h3 className="text-xl font-semibold flex items-center mb-3">
                     <Coins className="h-5 w-5 mr-2 text-amber-500" />
                     単価相場
                   </h3>
-                  <p className="text-xl font-bold text-amber-500">{job.price}</p>
-                </div>
+                  <p className="text-2xl font-bold text-amber-600">
+                    {job.price}
+                  </p>
+                </section>
 
-                <div>
-                  <h3 className="text-lg font-semibold flex items-center mb-3">
+                <section>
+                  <h3 className="text-xl font-semibold flex items-center mb-3">
                     <Lightbulb className="h-5 w-5 mr-2 text-amber-500" />
                     特徴・メリット
                   </h3>
@@ -79,16 +101,16 @@ export default async function DictionaryDetail({ params }: { params: { id: strin
                     {job.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle className="h-5 w-5 mr-2 text-green-500 shrink-0" />
-                        <span>{feature}</span>
+                        {feature}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </section>
 
                 <Separator />
 
-                <div>
-                  <h3 className="text-lg font-semibold flex items-center mb-3">
+                <section>
+                  <h3 className="text-xl font-semibold flex items-center mb-3">
                     <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
                     始め方
                   </h3>
@@ -99,48 +121,51 @@ export default async function DictionaryDetail({ params }: { params: { id: strin
                       </li>
                     ))}
                   </ol>
-                </div>
+                </section>
 
                 {job.affiliateLink && (
-                  <div className="mt-4">
-                    <h3 className="text-lg font-semibold flex items-center mb-2">
-                      <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
+                  <section>
+                    <h3 className="text-xl font-semibold flex items-center mb-3">
+                      <ExternalLink className="h-5 w-5 mr-2 text-amber-500" />
                       始めるのにおすすめのサービス
                     </h3>
-                    <ol className="space-y-2 list-decimal list-inside">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {job.affiliateLink.map((url: string, i: number) => (
-                        <li key={i} className="pl-2">
-                          <Link
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-500 hover:underline"
-                            key={i}
+                        <Link
+                          key={i}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="default"
+                            size="lg"
+                            className="w-full bg-amber-500 hover:bg-amber-600 text-white"
                           >
-                          {job.affiliateName[i]}
-                          </Link>
-                        </li>
+                            {job.affiliateName[i]}で始める
+                          </Button>
+                        </Link>
                       ))}
-                    </ol>
-                  </div>
+                    </div>
+                  </section>
                 )}
 
-                <div>
-                  <h3 className="text-lg font-semibold flex items-center mb-3">
+                <section>
+                  <h3 className="text-xl font-semibold flex items-center mb-3">
                     <Wrench className="h-5 w-5 mr-2 text-amber-500" />
                     必要なツール
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {job.tools.map((tool, i) => (
-                      <Badge key={i} variant="secondary">
+                      <Badge key={i} variant="secondary" className="text-sm">
                         {tool}
                       </Badge>
                     ))}
                   </div>
-                </div>
+                </section>
 
-                <div>
-                  <h3 className="text-lg font-semibold flex items-center mb-3">
+                <section>
+                  <h3 className="text-xl font-semibold flex items-center mb-3">
                     <Clock className="h-5 w-5 mr-2 text-amber-500" />
                     こんな人におすすめ
                   </h3>
@@ -148,55 +173,38 @@ export default async function DictionaryDetail({ params }: { params: { id: strin
                     {job.suitableFor.map((trait, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle className="h-5 w-5 mr-2 text-green-500 shrink-0" />
-                        <span>{trait}</span>
+                        {trait}
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="pt-4">
-                  <h3 className="text-lg font-semibold flex items-center mb-3">
-                    <Share2 className="h-5 w-5 mr-2 text-amber-500" />
-                    シェアする
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    <Button variant="outline" size="sm" className="flex items-center gap-2">
-                      <Twitter className="h-4 w-4" />
-                      Twitter
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex items-center gap-2">
-                      <Facebook className="h-4 w-4" />
-                      Facebook
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex items-center gap-2">
-                      <Instagram className="h-4 w-4" />
-                      Instagram
-                    </Button>
-                  </div>
-                </div>
+                </section>
               </CardContent>
             </Card>
 
-            <div className="mt-12">
-              <h2 className="text-xl font-bold mb-4">関連する副業</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <section className="mt-16">
+              <h2 className="text-2xl font-bold mb-6">関連する副業</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {sideJobs
                   .filter((relatedJob) => relatedJob.id !== job.id)
                   .slice(0, 3)
                   .map((relatedJob) => (
-                    <Card key={relatedJob.id}>
+                    <Card key={relatedJob.id} className="shadow">
                       <CardHeader className="pb-2 h-[160px]">
-                        <CardTitle className="text-base">{relatedJob.title}</CardTitle>
+                        <CardTitle className="text-base">
+                          {relatedJob.title}
+                        </CardTitle>
                       </CardHeader>
                       <CardContent className="flex flex-col h-[140px]">
-                        <p className="text-sm text-muted-foreground line-clamp-2">{relatedJob.description}</p>
+                        <p className="text-sm text-muted-foreground line-clamp-2">
+                          {relatedJob.description}
+                        </p>
                       </CardContent>
                       <div className="px-6 pb-4">
                         <Link href={`/dictionary/${relatedJob.id}`}>
                           <Button
                             variant="outline"
                             size="sm"
-                            className="w-full border-amber-500 text-amber-500 hover:bg-amber-50"
+                            className="w-full border-amber-500 text-amber-500 hover:bg-amber-100"
                           >
                             詳細を見る
                           </Button>
@@ -205,37 +213,49 @@ export default async function DictionaryDetail({ params }: { params: { id: strin
                     </Card>
                   ))}
               </div>
-            </div>
+            </section>
 
-            <div className="mt-12 bg-amber-50 rounded-lg p-6">
-              <h2 className="text-xl font-bold mb-4">副業を成功させるためのポイント</h2>
-              <div className="space-y-4">
+            <section className="mt-16 bg-white p-8 rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-6">
+                副業を成功させるためのポイント
+              </h2>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p>
-                  副業を始めるのは簡単ですが、継続して収入を得るには工夫が必要です。
-                  以下のポイントを意識して取り組みましょう。
+                  副業を始めるのは簡単ですが、継続して収入を得るには工夫が必要です。以下のポイントを意識して取り組みましょう。
                 </p>
-                <h3 className="font-semibold">1. 小さく始めて徐々に拡大する</h3>
-                <p>
-                  最初から大きな収入を期待せず、小さな案件から始めて実績を積み上げていきましょう。
-                  経験を積むことで単価アップや案件獲得が容易になります。
-                </p>
-                <h3 className="font-semibold">2. 継続的な学習を怠らない</h3>
-                <p>
-                  どんな副業も市場やトレンドは変化します。常に新しい情報をキャッチアップし、
-                  スキルアップを続けることが長期的な成功につながります。
-                </p>
-                <h3 className="font-semibold">3. 本業とのバランスを大切に</h3>
-                <p>
-                  副業に熱中するあまり本業に支障が出ないよう、時間管理を徹底しましょう。
-                  健康を損なわないペース配分も重要です。
-                </p>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    1. 小さく始めて徐々に拡大する
+                  </h3>
+                  <p>
+                    最初は小さな案件からスタートし、実績を積み重ねることで信頼と収益を伸ばしていきましょう。
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    2. 継続的な学習を怠らない
+                  </h3>
+                  <p>
+                    市場やニーズは日々変化しています。トレンドをキャッチし、スキルアップを図ることが成功への近道です。
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    3. 本業とのバランスを大切に
+                  </h3>
+                  <p>
+                    副業に没頭しすぎず、健康や本業との両立も大切にしましょう。長く続けるためのペース配分が鍵です。
+                  </p>
+                </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </main>
       <Footer />
     </div>
-  )
+  );
 }
-
