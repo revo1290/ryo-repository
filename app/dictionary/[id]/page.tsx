@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { sideJobs } from "@/lib/diagnosis-logic";
+import { sideJobs } from "@/lib/data/sideJobs";
 
 export async function generateStaticParams() {
   return sideJobs.map((job) => ({ id: job.id }));

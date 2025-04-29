@@ -16,7 +16,7 @@ import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { sideJobs } from "@/lib/diagnosis-logic";
+import { sideJobs } from "@/lib/data/sideJobs";
 
 export default function Dictionary() {
   const [searchTerm, setSearchTerm] = useState("");
