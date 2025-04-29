@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { motion, HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Home() {
