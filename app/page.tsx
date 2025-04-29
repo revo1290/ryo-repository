@@ -18,8 +18,8 @@ import {
 } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { motion } from "framer-motion";
-import Image from 'next/image';
+import { motion, HTMLMotionProps } from "framer-motion";
+import Image from "next/image";
 
 export default function Home() {
   // 特徴データ
@@ -37,7 +37,8 @@ export default function Home() {
     {
       icon: Clock,
       title: "すぐに診断できる",
-      description: "簡単診断なら5問、詳細診断でも15問。数分で結果がわかります。",
+      description:
+        "簡単診断なら5問、詳細診断でも15問。数分で結果がわかります。",
     },
   ];
 
@@ -161,9 +162,7 @@ export default function Home() {
                         <CardTitle>{feature.title}</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-gray-600">
-                          {feature.description}
-                        </p>
+                        <p className="text-gray-600">{feature.description}</p>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -196,9 +195,7 @@ export default function Home() {
                         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold">
                           {job.rank}
                         </div>
-                        <CardTitle className="mt-6">
-                          {job.title}
-                        </CardTitle>
+                        <CardTitle className="mt-6">{job.title}</CardTitle>
                       </CardHeader>
                       <CardContent className="flex flex-col h-36 p-6">
                         <p className="text-gray-600 mb-4 flex-grow">
@@ -240,5 +237,5 @@ export default function Home() {
 
       <Footer />
     </div>
-);
+  );
 }

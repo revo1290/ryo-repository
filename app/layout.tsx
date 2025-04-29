@@ -29,6 +29,8 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
+    locale: "ja_JP", // 日本語ロケールを明示
+    siteName: "副業診断アプリ", // サイト名を追加
   },
   twitter: {
     card: "summary_large_image",
@@ -46,6 +48,9 @@ export const metadata: Metadata = {
   },
   generator: "v0.dev",
   robots: "index, follow", // クローラーにインデックスを促進
+  alternates: {
+    canonical: "https://sidejob-diagnosis.vercel.app/", // 正規URLを追加
+  },
 };
 
 export default function RootLayout({
@@ -68,5 +73,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import "./globals.css";
