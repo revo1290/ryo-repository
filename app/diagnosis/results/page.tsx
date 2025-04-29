@@ -28,6 +28,7 @@ import {
   Share2,
   Twitter,
   Wrench,
+  ExternalLink,
 } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -234,26 +235,30 @@ export default function DiagnosisResults() {
                       </div>
 
                       {job.affiliateLink && (
-                        <div className="mt-4">
-                          <h3 className="text-lg font-semibold flex items-center mb-2">
-                            <BriefcaseBusiness className="h-5 w-5 mr-2 text-amber-500" />
+                        <section>
+                          <h3 className="text-xl font-semibold flex items-center mb-3">
+                            <ExternalLink className="h-5 w-5 mr-2 text-amber-500" />
                             始めるのにおすすめのサービス
                           </h3>
-                          <ul className="space-y-2">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {job.affiliateLink.map((url: string, i: number) => (
-                              <li key={i}>
-                                <Link
-                                  href={url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-blue-500 hover:underline"
+                              <Link
+                                key={i}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Button
+                                  variant="default"
+                                  size="lg"
+                                  className="w-full bg-amber-500 hover:bg-amber-600 text-white"
                                 >
-                                  {job.affiliateName[i]}
-                                </Link>
-                              </li>
+                                  {job.affiliateName[i]}で始める
+                                </Button>
+                              </Link>
                             ))}
-                          </ul>
-                        </div>
+                          </div>
+                        </section>
                       )}
 
                       <div>
