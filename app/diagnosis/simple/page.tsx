@@ -73,15 +73,12 @@ export default function SimpleDiagnosis() {
 
   const handleNext = () => {
     if (selectedOption) {
-      // 回答を保存
       setAnswers({ ...answers, [questions[currentQuestion].id]: selectedOption })
 
       if (currentQuestion < questions.length - 1) {
-        // 次の質問へ
         setCurrentQuestion(currentQuestion + 1)
         setSelectedOption(null)
       } else {
-        // 診断完了、結果ページへ
         const newAnswers = { ...answers, [questions[currentQuestion].id]: selectedOption }
         const answersParam = encodeURIComponent(JSON.stringify(newAnswers))
         router.push(`/diagnosis/results?type=simple&answers=${answersParam}`)
@@ -110,37 +107,47 @@ export default function SimpleDiagnosis() {
             </div>
 
             <div className="mb-8">
-              <div className="flex justify-between text-sm mb-2">
-                <span>
-                  質問 {currentQuestion + 1}/{questions.length}
-                </span>
+              <div className="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                <span>質問 {currentQuestion + 1}/{questions.length}</span>
                 <span>{Math.round(progress)}%</span>
               </div>
-              <Progress value={progress} className="h-2" />
+              <Progress value={progress} className="h-3 rounded-full bg-gray-200" />
             </div>
 
-            <Card>
+            <Card className="shadow-md p-2 md:p-4">
               <CardHeader>
-                <CardTitle>{questions[currentQuestion].question}</CardTitle>
+                <CardTitle className="text-xl leading-relaxed">{questions[currentQuestion].question}</CardTitle>
               </CardHeader>
               <CardContent>
                 <RadioGroup value={selectedOption || ""} onValueChange={setSelectedOption}>
                   {questions[currentQuestion].options.map((option) => (
-                    <div key={option.id} className="flex items-center space-x-2 mb-4">
-                      <RadioGroupItem value={option.id} id={option.id} />
-                      <Label htmlFor={option.id} className="cursor-pointer">
-                        {option.text}
-                      </Label>
+                    <div
+                      key={option.id}
+                      className={`flex items-center p-3 rounded-md border transition-all cursor-pointer mb-3
+                        ${selectedOption === option.id ? "border-amber-500 bg-amber-50" : "border-gray-300 hover:bg-gray-50"}`}
+                      onClick={() => setSelectedOption(option.id)}
+                    >
+                      <RadioGroupItem value={option.id} id={option.id} className="mr-3" />
+                      <Label htmlFor={option.id} className="cursor-pointer text-base">{option.text}</Label>
                     </div>
                   ))}
                 </RadioGroup>
               </CardContent>
-              <CardFooter className="flex justify-between">
-                <Button variant="outline" onClick={handlePrevious} disabled={currentQuestion === 0}>
+              <CardFooter className="flex justify-between mt-4 space-x-4">
+                <Button
+                  variant="outline"
+                  onClick={handlePrevious}
+                  disabled={currentQuestion === 0}
+                  className="w-1/2"
+                >
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   前へ
                 </Button>
-                <Button onClick={handleNext} disabled={!selectedOption} className="bg-amber-500 hover:bg-amber-600">
+                <Button
+                  onClick={handleNext}
+                  disabled={!selectedOption}
+                  className="w-1/2 bg-amber-500 hover:bg-amber-600 text-white"
+                >
                   {currentQuestion < questions.length - 1 ? (
                     <>
                       次へ
@@ -159,4 +166,3 @@ export default function SimpleDiagnosis() {
     </div>
   )
 }
-
