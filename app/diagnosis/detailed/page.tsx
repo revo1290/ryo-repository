@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,7 +11,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-// 詳細診断の質問
 const questions = [
   {
     id: 1,
@@ -63,128 +62,26 @@ const questions = [
       { id: "d", text: "継続できるか不安" },
     ],
   },
-  {
-    id: 6,
-    question: "あなたの職業タイプに最も近いものはどれですか？",
-    options: [
-      { id: "a", text: "会社員（デスクワーク中心）" },
-      { id: "b", text: "会社員（営業・接客など）" },
-      { id: "c", text: "フリーランス・自営業" },
-      { id: "d", text: "学生・主婦/主夫" },
-    ],
-  },
-  {
-    id: 7,
-    question: "副業の目的は何ですか？",
-    options: [
-      { id: "a", text: "収入アップ" },
-      { id: "b", text: "将来の独立・転職の準備" },
-      { id: "c", text: "趣味や特技を活かす" },
-      { id: "d", text: "新しいスキルの習得" },
-    ],
-  },
-  {
-    id: 8,
-    question: "どのような働き方が理想ですか？",
-    options: [
-      { id: "a", text: "完全在宅・リモートワーク" },
-      { id: "b", text: "外出して人と関わる仕事" },
-      { id: "c", text: "在宅と外出のミックス" },
-      { id: "d", text: "場所を問わず、自由に働ける" },
-    ],
-  },
-  {
-    id: 9,
-    question: "コミュニケーション能力についてどう思いますか？",
-    options: [
-      { id: "a", text: "人と話すのが得意で楽しい" },
-      { id: "b", text: "必要に応じてコミュニケーションは取れる" },
-      { id: "c", text: "あまり得意ではない" },
-      { id: "d", text: "一人で黙々と作業する方が好き" },
-    ],
-  },
-  {
-    id: 10,
-    question: "英語力はどの程度ありますか？",
-    options: [
-      { id: "a", text: "ビジネスレベル以上" },
-      { id: "b", text: "日常会話レベル" },
-      { id: "c", text: "読み書きはできるが会話は苦手" },
-      { id: "d", text: "ほとんどできない" },
-    ],
-  },
-  {
-    id: 11,
-    question: "パソコンスキルはどの程度ありますか？",
-    options: [
-      { id: "a", text: "プログラミングやデザインソフトも使える" },
-      { id: "b", text: "オフィスソフトを問題なく使える" },
-      { id: "c", text: "基本的な操作はできる" },
-      { id: "d", text: "あまり得意ではない" },
-    ],
-  },
-  {
-    id: 12,
-    question: "副業にかけられる初期投資はどのくらいですか？",
-    options: [
-      { id: "a", text: "ほとんどかけられない" },
-      { id: "b", text: "5万円程度まで" },
-      { id: "c", text: "10万円程度まで" },
-      { id: "d", text: "必要であれば10万円以上も可能" },
-    ],
-  },
-  {
-    id: 13,
-    question: "副業にどのくらいの期間取り組む予定ですか？",
-    options: [
-      { id: "a", text: "短期間（数ヶ月程度）" },
-      { id: "b", text: "中期的（半年〜1年程度）" },
-      { id: "c", text: "長期的（1年以上）" },
-      { id: "d", text: "将来的には本業にしたい" },
-    ],
-  },
-  {
-    id: 14,
-    question: "副業で得たいと思う月収はどのくらいですか？",
-    options: [
-      { id: "a", text: "3万円未満" },
-      { id: "b", text: "3万円〜5万円" },
-      { id: "c", text: "5万円〜10万円" },
-      { id: "d", text: "10万円以上" },
-    ],
-  },
-  {
-    id: 15,
-    question: "あなたが最も興味のある分野はどれですか？",
-    options: [
-      { id: "a", text: "IT・テクノロジー" },
-      { id: "b", text: "クリエイティブ・アート" },
-      { id: "c", text: "ビジネス・マーケティング" },
-      { id: "d", text: "教育・コーチング" },
-    ],
-  },
 ]
 
-export default function DetailedDiagnosis() {
+export default function SimpleDiagnosis() {
   const router = useRouter()
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  const questionRef = useRef<HTMLDivElement>(null)
 
   const handleNext = () => {
     if (selectedOption) {
-      // 回答を保存
-      setAnswers({ ...answers, [questions[currentQuestion].id]: selectedOption })
+      const newAnswers = { ...answers, [questions[currentQuestion].id]: selectedOption }
+      setAnswers(newAnswers)
 
       if (currentQuestion < questions.length - 1) {
-        // 次の質問へ
         setCurrentQuestion(currentQuestion + 1)
-        setSelectedOption(null)
+        setSelectedOption(newAnswers[questions[currentQuestion + 1].id] || null)
       } else {
-        // 診断完了、結果ページへ
-        const newAnswers = { ...answers, [questions[currentQuestion].id]: selectedOption }
         const answersParam = encodeURIComponent(JSON.stringify(newAnswers))
-        router.push(`/diagnosis/results?type=detailed&answers=${answersParam}`)
+        router.push(`/diagnosis/results?type=simple&answers=${answersParam}`)
       }
     }
   }
@@ -196,51 +93,79 @@ export default function DetailedDiagnosis() {
     }
   }
 
+  useEffect(() => {
+    questionRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [currentQuestion])
+
   const progress = ((currentQuestion + 1) / questions.length) * 100
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 py-12 md:py-24">
+      <main className="flex-1 py-12 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-2xl">
             <div className="mb-8 text-center">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">詳細診断</h1>
-              <p className="mt-2 text-gray-500">15の質問に答えて、あなたにぴったりの副業を詳しく診断します</p>
+              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">簡単診断</h1>
+              <p className="mt-2 text-gray-600">5つの質問に答えて、あなたにぴったりの副業を見つけましょう</p>
             </div>
 
-            <div className="mb-8">
-              <div className="flex justify-between text-sm mb-2">
-                <span>
-                  質問 {currentQuestion + 1}/{questions.length}
-                </span>
+            <div className="mb-6">
+              <div className="flex justify-between text-sm font-medium text-gray-700 mb-1">
+                <span>質問 {currentQuestion + 1}/{questions.length}</span>
                 <span>{Math.round(progress)}%</span>
               </div>
-              <Progress value={progress} className="h-2" />
+              <Progress value={progress} className="h-3 rounded-full bg-gray-200" />
             </div>
 
-            <Card>
+            <Card
+              ref={questionRef}
+              className="shadow-lg transition-all duration-300 border border-gray-200 p-2 md:p-4"
+            >
               <CardHeader>
-                <CardTitle>{questions[currentQuestion].question}</CardTitle>
+                <CardTitle className="text-xl leading-relaxed text-gray-800">
+                  {questions[currentQuestion].question}
+                </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-2 mt-2">
                 <RadioGroup value={selectedOption || ""} onValueChange={setSelectedOption}>
                   {questions[currentQuestion].options.map((option) => (
-                    <div key={option.id} className="flex items-center space-x-2 mb-4">
-                      <RadioGroupItem value={option.id} id={option.id} />
-                      <Label htmlFor={option.id} className="cursor-pointer">
+                    <div
+                      key={option.id}
+                      className={`flex items-center p-3 rounded-md border cursor-pointer transition-all duration-150 ease-in-out
+                        ${selectedOption === option.id
+                          ? "border-amber-500 bg-amber-100"
+                          : "border-gray-300 hover:bg-gray-100"}`}
+                      onClick={() => setSelectedOption(option.id)}
+                    >
+                      <RadioGroupItem
+                        value={option.id}
+                        id={option.id}
+                        className="mr-3"
+                        aria-label={option.text}
+                      />
+                      <Label htmlFor={option.id} className="cursor-pointer text-base text-gray-700">
                         {option.text}
                       </Label>
                     </div>
                   ))}
                 </RadioGroup>
               </CardContent>
-              <CardFooter className="flex justify-between">
-                <Button variant="outline" onClick={handlePrevious} disabled={currentQuestion === 0}>
+              <CardFooter className="flex justify-between mt-4 gap-4">
+                <Button
+                  variant="outline"
+                  onClick={handlePrevious}
+                  disabled={currentQuestion === 0}
+                  className="w-1/2"
+                >
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   前へ
                 </Button>
-                <Button onClick={handleNext} disabled={!selectedOption} className="bg-amber-500 hover:bg-amber-600">
+                <Button
+                  onClick={handleNext}
+                  disabled={!selectedOption}
+                  className={`w-1/2 text-white ${selectedOption ? "bg-amber-500 hover:bg-amber-600" : "bg-amber-300 cursor-not-allowed"}`}
+                >
                   {currentQuestion < questions.length - 1 ? (
                     <>
                       次へ
@@ -259,4 +184,3 @@ export default function DetailedDiagnosis() {
     </div>
   )
 }
-
