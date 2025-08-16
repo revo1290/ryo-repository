@@ -1,0 +1,1 @@
+{"title":"chore/remove-duplicate-globals-css","body":"概要:\napp/layout.tsx の globals.css の重複 import を削除してコードをクリーンアップします。\n\n目的:\n- 重複 import によるビルドやスタイルの予期せぬ挙動を防ぐ\n\n対象ファイル候補:\n- app/layout.tsx\n- styles/globals.css\n\n受け入れ基準:\n- globals.css の import が一箇所にまとめられている\n- ビルド・ローカル表示に変更がないことを確認する\n\n補足:\n重複が意図的な場合（テーマ切り替えなど）はその旨をドキュメントに明記してください."}
